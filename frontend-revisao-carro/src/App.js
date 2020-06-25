@@ -1,15 +1,12 @@
 import React from 'react';
 
-import Header from './components/Header/Header';
-import Menu from './components/Menu/Menu';
-
-import './global.css'
+import Home from './components/Home/Home';
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <Menu></Menu>
+      <Home></Home>
+      <span>Desenvoldido por Geraldo Vilela</span>
     </div>
   );
 }
