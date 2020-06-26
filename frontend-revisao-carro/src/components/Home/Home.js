@@ -1,17 +1,15 @@
 import React from 'react';
 
-import Header from '../Header/Header';
-import ClientForm from '../ClientForm/ClientForm';
-import CarsForm from '../CarsForm/CarsForm';
-import ReviewForm from '../ReviewForm/ReviewForm';
+import Card from '../Card/Card';
 
 
 function Home() {
+    
     return (
         <div className="d-flex">
             <div className="align-content-center">
-                <Header></Header>
-            </div>
+                <Card></Card>
+                </div>
         </div>
     )
 }
