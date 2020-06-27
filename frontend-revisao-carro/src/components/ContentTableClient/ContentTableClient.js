@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 function ContentTableClient(props){
     return (
      <>
-      <Link class="btn btn-primary" to="/ClientForm" role="button">Cadastrar novo Client</Link>      
+      <Link className="btn btn-primary" to="/ClientForm" role="button">Cadastrar novo Client</Link>      
         <table className="table">
   <caption>List of users</caption>
   <thead>

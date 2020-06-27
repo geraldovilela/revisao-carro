@@ -10,10 +10,17 @@ function ClientForm() {
     const [phone, setPhone] = useState('');
     const [gender, setGender] = useState('');
     
-    function handleCreateClient(e){
+    
+    async function handleCreateClient(e){
         e.preventDefault();     
-    }
+        const data = {name, gender, email, birthday}
+        console.log(data);
 
+         const response =  await api.post('/clients', data).then()
+
+         alert(`Id do novo usuario é ${response.data.id}`)
+
+    }
 
     return (
         <form onSubmit={handleCreateClient}>
@@ -63,7 +70,7 @@ function ClientForm() {
                 <input type="checkbox" className="form-check-input" id="genderF" />
                 <label className="form-check-label" htmlFor="exampleCheck1">Feminino</label>
             </div>
-            <button type="submit" className="btn btn-primary text-dark rounded-pill">Salvar</button>
+            <button type="submit" className="btn btn-primary text-dark rounded-pill" >Salvar</button>
         </form>
     )
 }
