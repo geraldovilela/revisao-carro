@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState } from 'react';
 
 import api from '../../services/api';
 
-function ClientForm() {
-    
+function ClientFormUpdate() {
+    const id = localStorage.getItem("clientId")
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [birthday,setBirthday] = useState('');
@@ -13,12 +13,10 @@ function ClientForm() {
     
     async function handleCreateClient(e){
         e.preventDefault();     
-        const data = {name, gender, email, birthday}
-        console.log(data);
-
-         const response =  await api.post('/clients', data).then()
-
-         alert(`Id do novo usuario é ${response.data.id}`)
+        const data = {id,name, gender, email, birthday}
+        const response =  await api.put(`/clients/${id}`, data)
+        console.log(response)
+         alert(`Dados do user ${id} foram Atualizados`)
 
     }
 
@@ -62,17 +60,12 @@ function ClientForm() {
                 <input type="checkbox" 
                 className="form-check-input" 
                 id="genderM"
-                value={"M"}
-                onClick={e => setGender(e.target.value)} />
+                value={gender}
+                onChange={e => setGender(e.target.value)} />
                 <label className="form-check-label" htmlFor="exampleCheck1">Masculino</label>
             </div>
             <div className="form-group form-check">
-                <input type="checkbox" 
-                className="form-check-input" 
-                id="genderF" 
-                value={"F"}
-                onClick={e => setGender(e.target.value)} />
-              
+                <input type="checkbox" className="form-check-input" id="genderF" />
                 <label className="form-check-label" htmlFor="exampleCheck1">Feminino</label>
             </div>
             <button type="submit" className="btn btn-primary text-dark rounded-pill" >Salvar</button>
@@ -80,4 +73,4 @@ function ClientForm() {
     )
 }
 
-export default ClientForm;
+export default ClientFormUpdate;
